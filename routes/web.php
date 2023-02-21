@@ -39,9 +39,22 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::group(['middleware' => 'checkRole:admin'], function() {
         Route::inertia('/adminDashboard', 'AdminDashboard')->name('adminDashboard');
+        Route::inertia('/UserAccounts', 'UserAccounts')->name('pages.user_acc');
+        Route::inertia('/Documents', 'Documents')->name('pages.docs');
+        Route::inertia('/AdminWebinars', 'AdminWebinar')->name('pages.webinars');
+        Route::post('logout', [\App\Http\Controllers\Auth\LoginController::class, 'destroy'])->name('logout');
     });
     Route::group(['middleware' => 'checkRole:user'], function() {
         Route::inertia('/userDashboard', 'UserDashboard')->name('userDashboard');
+        Route::inertia('/Profile', 'UserProfile')->name('pages.user_profile');
+        Route::inertia('/Email', 'Email')->name('pages.email');
+        Route::inertia('/DigitalLibrary', 'DigitalLibrary')->name('pages.dig_lib');
+        Route::inertia('/Projects', 'Projects')->name('pages.projects');
+        Route::inertia('/Webinars', 'UserWebinar')->name('pages.webinar');
+        Route::inertia('/Newsletters', 'Newsletter')->name('pages.newsletters');
+        Route::inertia('/Members', 'Members')->name('pages.members');
+        Route::post('logout', [\App\Http\Controllers\Auth\LoginController::class, 'destroy'])->name('logout');
+        // Route::inertia('/Sample', 'sample')->name('pages.sample');
     });
 });
 

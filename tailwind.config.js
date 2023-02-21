@@ -11,8 +11,18 @@ module.exports = {
 
     theme: {
         extend: {
+            colors: {
+                green: {
+                light: '#66cc33',
+                default: '#008000',
+                midDark: '663300',
+                dark: '#336633',
+                },
+            },
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                customFont: ['Dancing script'],
+                poppins: ['Poppins'],
             },
         },
     },

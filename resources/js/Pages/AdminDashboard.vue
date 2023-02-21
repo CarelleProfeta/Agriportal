@@ -1,22 +1,21 @@
 <script setup>
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head } from '@inertiajs/vue3';
+import { Head, Link} from '@inertiajs/vue3';
+import AdminLayout from '@/Layouts/AdminLayout.vue';
 </script>
 
 <template>
-    <Head title="Dashboard" />
-
-    <AuthenticatedLayout>
-        <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>
-        </template>
-
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-gray-900">Admin Dashboard</div>
-                </div>
-            </div>
-        </div>
-    </AuthenticatedLayout>
+    <Head title="Admin Dashboard" />
+        <AdminLayout>
+            <p class="text-4xl mx-4 text-black text-center">WELCOME,  {{ $page.props.auth.user.name }}</p>
+        </AdminLayout>
 </template>
+
+<script>
+
+export default {
+   components: {
+      AdminLayout
+   }
+}
+
+</script>

@@ -25,17 +25,21 @@ const submit = () => {
 };
 </script>
 
+
 <template>
+
     <GuestLayout>
-        <Head title="Log in" />
+        <Head title="Agriportal - Login Page" />
+
+
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
         </div>
-
+    
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="email" value="Email" />
+                <InputLabel for="email" value="Email" class="text-black font-semibold text-lg" />
 
                 <TextInput
                     id="email"
@@ -51,7 +55,7 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password" value="Password" />
+                <InputLabel for="password" value="Password" class="text-black font-semibold text-lg" />
 
                 <TextInput
                     id="password"
@@ -68,7 +72,7 @@ const submit = () => {
             <div class="block mt-4">
                 <label class="flex items-center">
                     <Checkbox name="remember" v-model:checked="form.remember" />
-                    <span class="ml-2 text-sm text-gray-600">Remember me</span>
+                    <span class="ml-2 text-sm text-black font-semibold">Remember me</span>
                 </label>
             </div>
 
@@ -76,7 +80,7 @@ const submit = () => {
                 <Link
                     v-if="canResetPassword"
                     :href="route('password.request')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    class="underline text-sm font-semibold text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                     Forgot your password?
                 </Link>
@@ -88,3 +92,4 @@ const submit = () => {
         </form>
     </GuestLayout>
 </template>
+
